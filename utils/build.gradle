@@ -1,0 +1,17 @@
+apply plugin: 'java'
+
+configurations {
+    annotationProcessor
+}
+
+compileJava {
+    options.annotationProcessorPath = configurations.annotationProcessor
+    options.compilerArgs = ['-Atoothpick_registry_package_name=com.defaultapps.utils',]
+}
+
+dependencies {
+    implementation'com.github.stephanenicolas.toothpick:toothpick-runtime:1.1.3'
+    annotationProcessor 'com.github.stephanenicolas.toothpick:toothpick-compiler:1.1.3'
+
+    testImplementation 'junit:junit:4.12'
+}
